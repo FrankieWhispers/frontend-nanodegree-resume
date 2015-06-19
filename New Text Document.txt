@@ -1,0 +1,242 @@
+var bio = { 
+        "name": "Frank Rini",
+        "role": "Game Programmer",
+        "contact_info": {
+            "mobile": "661-555-5555",
+            "email": "frini2@sbcglobal.net",
+            "location": "Bakersfield"
+        },
+        "welcomeMsg" : "I am Awesome",
+        "skills": ["engineering", "Web Developer", "programmer"],
+        "bioPic": "images/fry.jpg"
+     }//bio
+
+var education = {
+    "schools": [
+        {
+         "name": "Tehachapi High School",
+         "city": "Tehachapi",
+         "degree": "High School Degree",
+         "majors": "none",
+         "dates": "1992",
+         "url": "www.example.com"
+        },
+        {
+         "name": "Bakersfield College",
+         "city": "Bakersfield",
+         "degree": "BS",
+         "majors": "CS",
+         "dates": "2000",
+         "url": "www.example.com"
+        }
+    ],
+    "onlineCourses": [
+      {
+        "title": "JavaScript Crash Course",
+        "school": "Udacity",
+        "dates": "2014",
+        "url": "www.udacity.com/course/ud804"
+      }
+    ]
+}  //education
+
+var work = {
+    "jobs": [
+      {
+        "employer": "AT&T",
+        "title": "Engineer",
+        "dates": "April 2000 - future",
+        "description": "design fiber jobs"
+      },
+      {
+        "employer": "TelTec Alarms",
+        "title": "Installer",
+        "dates": "February 1999 - April 2000",
+        "description": "installed alarms" 
+      }
+      ]
+    } //work
+
+var projects = {
+  "project": [
+    {
+        "title": "Sample Project 1",
+        "dates": "November 2014",
+        "description": "Udacity Cup website.",
+        "images": [
+          "https://here",
+          "https://there"
+        ]
+    }
+  ]
+} //projects
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+
+///////////////////////
+var bio = { 
+        "name": "Frank Rini",
+        "role": "Web Developer",
+        "contact_info": {
+            "mobile": "661-555-5555",
+            "email": "frini2@sbcglobal.net",
+            "github": "FrankieWhsipers@github.com",
+            "twitter": "@FrankieWhispers",
+            "location": "Bakersfield"
+        },
+        "welcomeMsg" : "Welcome to my resume'.",
+        "skills": ["Engineering", "Manager", "Web Developer", "Programmer"],
+        "bioPic": "images/fry.jpg"
+     }//bio
+
+var education = {
+    "schools": [
+        {
+         "name": "Tehachapi High School",
+         "city": "Tehachapi",
+         "degree": "High School Degree",
+         "majors": "none",
+         "dates": "1992",
+         "url": "www.example.com"
+        },
+        {
+         "name": "Bakersfield College",
+         "city": "Bakersfield",
+         "degree": "BS",
+         "majors": "CS",
+         "dates": "2000",
+         "url": "www.example.com"
+        }
+    ],
+    "onlineCourses": [
+      {
+        "title": "JavaScript Crash Course",
+        "school": "Udacity",
+        "dates": "2014",
+        "url": "www.udacity.com/course/ud804"
+      }
+    ]
+}  //education
+
+var work = {
+    "jobs": [
+      {
+        "employer": "AT&T",
+        "title": "Engineer",
+        "Location": "Bakersfield, CA.",
+        "dates": "April 2000 - future",
+        "description": "Spliced copper and fiber cables in multiple environments. Manager of
+                        twenty-five personnel with the reponsibility of safety, job assignment
+                        quality control, human resource and project managment. Engineer for 
+                        residental and commercial services, design of fiber services for businesses,
+                        project manage fiber for Bakersfield School district."
+      },
+      {
+        "employer": "TelTec Alarms",
+        "title": "Installer",
+        "Location": "Bakersfield, CA.",
+        "dates": "February 1999 - April 2000",
+        "description": "Installed alarms systems for residental and commericial buildings. 
+                        Programmed and installed access conrtol systems for businesses. 
+                        Placed inside wire on new and existing buildings"
+      }
+    ]
+} //work
+
+var projects = {
+  "project": [
+    {
+        "title": "Sample Project 1",
+        "dates": "November 2014",
+        "description": "Udacity Cup website.",
+        "images": [
+          "https://here",
+          "https://there"
+        ]
+    }
+  ]
+} //projects
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+if(bio.contact_info.mobile.length > 0)
+{
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contact_info.mobile);
+  $("#header").append(formattedMobile);
+
+  var formattedEmail = HTMLemail.replace("%data%", bio.contact_info.email);
+  $("#header").append(formattedEmail);
+
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contact_info.location);
+  $("#header").append(formattedLocation);
+}
+
+var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
+$("#header").append(formattedBioPic);
+
+if(bio.skills.length > 0)
+{
+    $("#header").append(HTMLskillsStart);
+
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+}
+
+function displayWork() {
+    for(job in work.jobs) {
+        $("#workExperience").append(HTMLworkStart);
+        var formattedEmployer = HTMLworkEmployer.replace
+          ("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace
+          ("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        $(".work-entry:last").append(formattedEmployerTitle);     
+        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(formattedDates);
+        var formattedDesciption = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(formattedDesciption);
+    }
+}
+
+displayWork();
+
+$(document).click(function(loc) {logClicks(loc.pageX,loc.pageY);})
+
+$("#main").append(internationalizeButton);
+
+projects.display = function() {
+    for (project in projects.projects) {
+         $("#projects").append(HTMLprojectStart);
+
+         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+         $(".project-entry:last").append(formattedTitle);
+
+         var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+         $(".project-entry:last").append(formattedDates);
+
+         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+         $(".project-entry:last").append(formattedDescription);
+        
+        if(projects.projects[project].images.length > 0) {
+            for(image in projects.projects[project].images) {
+                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+                $(".project-entry:last").append(formattedImage);
+            }
+        }
+    }
+}
+
+$("#mapDiv").append(googleMap);

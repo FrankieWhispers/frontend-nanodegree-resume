@@ -139,6 +139,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 .biopic {
   float: left;
   padding: 10px;

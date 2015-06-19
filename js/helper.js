@@ -170,7 +170,30 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
+
       // your code goes here!
+      var info;
+      var infoWindow = new google.maps.InfoWindow;
+      
+      switch(marker.getTitle().split(',')[0]) {
+        case "Tehachapi":
+          info = "This is where I went to High School.";
+          break;
+        case "Bakersfield":
+          info = "This is where I went to School and work.";
+          break;
+        case "Palmdale":
+          info = "This is where I worked.";
+          break;
+        case "San Diego":
+          info = "This is where I like to SCUBA dive.";
+          break;
+        default:
+          info = "Nothing special here."
+      };
+
+      infoWindow.setContent(info);
+      infoWindow.open(map, this);
     });
 
     // this is where the pin actually gets added to the map.
@@ -233,11 +256,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
